@@ -1,0 +1,7 @@
+{
+  "name": "ProjetAdem",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

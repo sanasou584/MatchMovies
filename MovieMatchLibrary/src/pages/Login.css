@@ -1,0 +1,115 @@
+
+/* Fond de la page */
+.login-content {
+  --background: #101827;
+}
+
+/* Centrer le formulaire */
+.login-container {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* Carte du formulaire */
+.login-card {
+  background: #1d293b;
+  padding: 35px;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo et titre */
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-logo {
+  font-size: 50px;
+  color: #488aff;
+}
+
+.login-header h1 {
+  color: white;
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.login-header p {
+  color: #a0aec0;
+  font-size: 14px;
+}
+
+/* Champs email et password */
+.login-field {
+  margin-bottom: 20px;
+}
+
+.login-field label {
+  display: block;
+  color: white;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.login-input {
+  --background: #334155;
+  --color: white;
+  --placeholder-color: #94a3b8;
+  --padding-start: 15px;
+  --padding-end: 12px;
+  --border-radius: 8px;
+  min-height: 50px;
+}
+
+/* Stay logged in */
+.login-options {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 14px;
+}
+
+/* Bouton login */
+.login-button {
+  --background: #488aff;
+  --border-radius: 8px;
+  height: 45px;
+}
+
+/* Texte inscription */
+.signup-text {
+  color: #a0aec0;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+/* Bouton create account */
+.signup-button {
+  --color: #488aff;
+  --border-color: #488aff;
+  --border-radius: 8px;
+  height: 45px;
+}
+
+/* Message erreur */
+.login-error {
+  color: #ff6b6b;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Adaptation pour téléphone */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 24px;
+  }
+}
