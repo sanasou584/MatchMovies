@@ -1,0 +1,37 @@
+.match-card {
+  margin-bottom: 1rem;
+}
+
+.match-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.match-card__identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.match-card__rate {
+  font-size: 0.95rem;
+  padding: 6px 10px;
+}
+
+.match-card__progress {
+  height: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.match-card__shared-title {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.match-card__shared-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}

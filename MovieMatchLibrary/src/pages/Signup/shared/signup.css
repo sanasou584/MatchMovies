@@ -1,0 +1,23 @@
+.signup-photo {
+  text-align: center;
+  margin: 1.5rem 0 1rem;
+}
+
+.signup-photo__avatar {
+  margin: 0 auto 10px;
+  border: 3px solid var(--ion-color-primary);
+}
+
+.signup-stay-logged-in {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.signup-stay-logged-in ion-label {
+  margin-left: 8px;
+}
+
+.signup-error {
+  color: var(--ion-color-danger);
+}

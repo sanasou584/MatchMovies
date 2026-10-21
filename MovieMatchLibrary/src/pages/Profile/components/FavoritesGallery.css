@@ -1,0 +1,40 @@
+.favorites-gallery {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+
+.favorites-gallery__item {
+  min-width: 120px;
+  max-width: 120px;
+  cursor: pointer;
+}
+
+.favorites-gallery__poster {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.favorites-gallery__name {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.favorites-gallery__rating {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--ion-color-medium);
+}
+
+.favorites-gallery__empty {
+  color: var(--ion-color-medium);
+  font-style: italic;
+  padding-left: 8px;
+}

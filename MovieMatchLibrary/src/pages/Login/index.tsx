@@ -11,7 +11,8 @@ import {
 
 import "./Login.css";
 import { filmOutline } from "ionicons/icons";
-import { handleLogin } from '../auth/userAuth';
+import { handleLogin } from '../../auth/userAuth';
+import { getErrorMessage } from "../../utils/errors";
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
@@ -28,8 +29,8 @@ const Login: React.FC = () => {
       setErr("");
       await handleLogin(email, pswd, stayLoggedIn);
       navigate('/home');
-    } catch (err: any) {
-      setErr(err.message);
+    } catch (err) {
+      setErr(getErrorMessage(err));
     }
   };
 

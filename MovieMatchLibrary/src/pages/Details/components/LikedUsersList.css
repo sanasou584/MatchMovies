@@ -1,0 +1,9 @@
+.details-section__title {
+  font-weight: bold;
+  margin: 1rem 0 0.5rem;
+}
+
+.details-section__empty {
+  color: var(--ion-color-medium);
+  font-style: italic;
+}

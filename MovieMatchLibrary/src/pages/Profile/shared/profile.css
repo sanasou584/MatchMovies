@@ -1,0 +1,12 @@
+.profile-favorites {
+  margin-top: 1.5rem;
+}
+
+.profile-favorites__heading {
+  margin: 0 8px 8px;
+}
+
+.profile-favorites__heading h3 {
+  margin: 0;
+  font-weight: bold;
+}

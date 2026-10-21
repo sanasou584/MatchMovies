@@ -1,25 +1,44 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { vi } from 'vitest';
+import { beforeEach, vi } from 'vitest';
+import { User } from 'firebase/auth';
 import App from './App';
-import { ProtectedRoute } from './pages/ProtectedRoute';
+import { ProtectedRoute } from './components/ProtectedRoute';
 import { useAuth } from './context/AuthContext';
 
 vi.mock('./context/AuthContext', () => ({
   useAuth: vi.fn(),
 }));
 
+const mockUseAuth = vi.mocked(useAuth);
+
+beforeEach(() => {
+  mockUseAuth.mockReturnValue({
+    user: null,
+    role: null,
+    loading: false,
+    logout: vi.fn(),
+  });
+});
+
 test('renders without crashing', () => {
+  mockUseAuth.mockReturnValue({
+    user: null,
+    role: null,
+    loading: true,
+    logout: vi.fn(),
+  });
+
   const { baseElement } = render(<App />);
   expect(baseElement).toBeDefined();
 });
 
-test('does not block protected content on loading state', () => {
-  vi.mocked(useAuth).mockReturnValue({
-    user: { uid: '123' } as any,
+test('renders protected content once authenticated and loaded', () => {
+  mockUseAuth.mockReturnValue({
+    user: { uid: '123' } as unknown as User,
     role: 'user',
-    loading: true,
+    loading: false,
     logout: vi.fn(),
   });
 

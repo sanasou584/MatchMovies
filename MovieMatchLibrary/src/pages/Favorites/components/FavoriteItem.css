@@ -1,0 +1,9 @@
+.favorite-item__thumbnail {
+  border-radius: 4px;
+}
+
+.favorite-item__rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

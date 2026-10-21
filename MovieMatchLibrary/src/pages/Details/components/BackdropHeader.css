@@ -1,0 +1,42 @@
+.details-backdrop {
+  width: 100%;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.details-backdrop__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.details-backdrop__bottom {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.details-backdrop__title {
+  color: #fff;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.details-backdrop__badges {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.details-backdrop__badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

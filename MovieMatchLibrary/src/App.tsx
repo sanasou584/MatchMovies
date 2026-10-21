@@ -1,3 +1,4 @@
+import React from "react";
 import { Navigate, Route } from "react-router-dom";
 import {
   IonApp,
@@ -9,13 +10,19 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
+import { home, heart, star, person } from "ionicons/icons";
+import { useAuth } from "./context/AuthContext";
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import Logout from "./auth/Logout";
+
 import Home from "./pages/Home";
 import Details from "./pages/Details";
+import Favorites from "./pages/Favorites";
+import Matches from "./pages/Matches";
+import Profile from "./pages/Profile";
+import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Admin from "./pages/Admin";
-import { ProtectedRoute } from "./pages/ProtectedRoute";
-import { useAuth } from "./context/AuthContext";
 
 /* Core & Basic CSS */
 import "@ionic/react/css/core.css";
@@ -31,17 +38,25 @@ import "@ionic/react/css/display.css";
 import "@ionic/react/css/palettes/dark.system.css";
 import "./theme/variables.css";
 
-import { home, heart, star, person } from "ionicons/icons";
-import Logout from "./auth/Logout";
-import Profile from "./pages/Profile";
-import Favorites from "./pages/Favorites";
-import Matches from "./pages/Matches";
-
 setupIonicReact();
+
+interface ProtectedRouteConfig {
+  path: string;
+  element: React.ReactElement;
+  requiredRole?: "admin" | "user";
+}
+
+const protectedRoutes: ProtectedRouteConfig[] = [
+  { path: "/home", element: <Home /> },
+  { path: "/details", element: <Details /> },
+  { path: "/favorites", element: <Favorites /> },
+  { path: "/matches", element: <Matches /> },
+  { path: "/profile", element: <Profile /> },
+  { path: "/admin", element: <Admin />, requiredRole: "admin" },
+];
 
 const App: React.FC = () => {
   const { user, loading } = useAuth();
-
 
   if (loading) {
     return null;
@@ -52,63 +67,17 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
-            <Route
-              path="/home"
-              element={
-                <ProtectedRoute>
-                  <Home />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/details"
-              element={
-                <ProtectedRoute>
-                  <Details />
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/favorites"
-              element={
-                <ProtectedRoute>
-                  <Favorites />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/matches"
-              element={
-                <ProtectedRoute>
-                  <Matches />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin"
-              element={
-                <ProtectedRoute requiredRole="admin">
-                  <Admin />
-                </ProtectedRoute>
-              }
-            />
+            {protectedRoutes.map(({ path, element, requiredRole }) => (
+              <Route
+                key={path}
+                path={path}
+                element={
+                  <ProtectedRoute requiredRole={requiredRole}>
+                    {element}
+                  </ProtectedRoute>
+                }
+              />
+            ))}
 
             <Route
               path="/login"

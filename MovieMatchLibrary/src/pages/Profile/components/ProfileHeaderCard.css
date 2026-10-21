@@ -1,0 +1,18 @@
+.profile-header-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.profile-header-card__avatar-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.profile-header-card__avatar {
+  border: 3px solid var(--ion-color-primary);
+}
+
+.profile-header-card__role {
+  margin-top: 0.5rem;
+}
