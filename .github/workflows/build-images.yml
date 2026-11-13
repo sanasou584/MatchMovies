@@ -32,6 +32,6 @@ jobs:
           context: ./MovieMatchLibrary
           file: ./MovieMatchLibrary/Dockerfile
           push: true
-          tags: ghcr.io/sanasou584/matchmovies-moviematchlibrary-frontend:plan-v5
+          tags: ghcr.io/sanasou584/matchmovies-moviematchlibrary-frontend:plan-v1
           provenance: true
 
